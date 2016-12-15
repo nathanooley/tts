@@ -1,2 +1,0 @@
-module AddToCartHelper
-end

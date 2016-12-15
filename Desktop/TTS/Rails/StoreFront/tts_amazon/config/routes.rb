@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
 
-  get 'add_to_cart/view_order'
+  get 'cart/add_to_cart'
 
-  get 'add_to_cart/checkout'
+  get 'cart/view_order'
+
+  get 'cart/checkout'
 
   devise_for :users
   get 'categorical' => 'storefront#items_by_category'
