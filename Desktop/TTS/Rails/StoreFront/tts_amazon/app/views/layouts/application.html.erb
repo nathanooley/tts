@@ -29,9 +29,17 @@
 		        	</ul>
 	          </li>
 
-	          <li class="dropdown">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <% @brands.each do |brand| %>
+                <li><%= link_to brand, branding_path(brand: brand) %></li>
+                <% end %>
+                <!-- <li><a href="all">All</a></li> -->
+
+          <!-- <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-	          <ul class="dropdown-menu">
+	          <ul class="dropdown-menu"> -->
 
 	          </ul>
 	        </li>
