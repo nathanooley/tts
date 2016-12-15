@@ -1,5 +1,5 @@
 <div class="row">
-  
+
 	<% @products.each do |product| %>
 		<div class="col-md-4">
 			<div class="well center-it">
@@ -28,13 +28,25 @@
 
 						<p><%= number_to_currency product.price %></p>
 						<p><%= product.description %></p>
-						<p>
-		      </div>
-		      <div class="modal-footer">
+
+            <div class="modal-footer">
+              <!-- Delete those "Save Changes" and "Close" buttons that were here -->
+              <p>
+              <%= form_tag add_to_cart_path do %>
+                <%= hidden_field_tag :product_id, product.id %>
+                <%= number_field_tag :quantity, nil, placeholder: "How many?" %>
+                <%= submit_tag "Add to Cart", class: "btn btn-primary" %>
+              <% end %>
+              </p>
+            </div>
+
+            <p>
+		      <!-- </div>
+		      <!-- <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		        <button type="button" class="btn btn-primary">Save changes</button>
-		      </div>
-		    </div>
+		      </div> -->
+		    </div> -->
 		  </div>
 		</div>
 
