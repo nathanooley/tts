@@ -24,7 +24,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
                 <% @categories.each do |cat| %>
-                <li><% link_to cat.name, categorical_path(cat_id: cat_id) %></li>
+                <li><%= link_to cat.name, categorical_path(category_id: cat.id) %></li>
                 <% end %>
 		        	</ul>
 	          </li>
