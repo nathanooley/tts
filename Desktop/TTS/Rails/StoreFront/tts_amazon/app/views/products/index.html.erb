@@ -2,6 +2,18 @@
 
 <h1>Listing Products</h1>
 
+<head>
+<% if can? :update, product %>
+  <td><%= link_to 'Edit', edit_product_path(product) %></td>
+  <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
+
+<% if can? :create, Product %>
+  <%= link_to 'New Product', new_product_path %>
+<% end %>
+
+</head>
+
 <table class="table">
   <thead>
     <tr>

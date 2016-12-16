@@ -6,6 +6,22 @@ class ApplicationController < ActionController::Base
 
   before_filter :categories, :brands
 
+  def configure_permitted_parameters
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
+     devise_parameter_sanitizer.permit(:account_update, keys[:role])
+  end
+
+  #*******Alternate********************
+
+  # def configure_permitted_parameters
+  #
+  #   devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password,
+  #      :password_confirmation, :role) }
+  #
+  #   devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password,
+  #      :password_confirmation, :current_password, :role) }
+  # end
+  
   def categories
     @categories = Category.all
   end
@@ -17,4 +33,6 @@ class ApplicationController < ActionController::Base
       @brands = Product.pluck(:brand).sort
     end
   end
+
+
 end
